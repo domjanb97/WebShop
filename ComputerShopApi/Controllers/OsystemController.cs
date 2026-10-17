@@ -47,5 +47,18 @@ namespace ComputerShopApi.Controllers
 
             return StatusCode(400, new { message = "Üres tábla", result = osystems });
         }
+
+        [HttpGet("osystemById")]
+        public object OsystemById([FromQuery] Guid id)
+        {
+            var osystem = context.Osystems.SingleOrDefault(o => o.Id == id);
+
+            if (osystem != null)
+            {
+                return StatusCode(200, new { message = "Sikeres lekérdezés", result = osystem });
+            }
+
+            return StatusCode(400, new { message = "Nincs ilyen id-vel osystem", result = osystem });
+        }
     }
 }

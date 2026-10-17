@@ -1,6 +1,16 @@
 [
   {
     "ContainingType": "ComputerShopApi.Controllers.OsystemController",
+    "Method": "AllOsystem",
+    "RelativePath": "Osystems/allOsystem",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ComputerShopApi.Controllers.OsystemController",
     "Method": "AddNewOsystem",
     "RelativePath": "Osystems/newOsystem",
     "HttpMethod": "POST",

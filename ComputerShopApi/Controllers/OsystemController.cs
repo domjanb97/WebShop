@@ -32,7 +32,7 @@ namespace ComputerShopApi.Controllers
 
             }
             
-            return StatusCode(400, new { message = "Sikertelen felvétel", result = osystem });
+            return StatusCode(404, new { message = "Sikertelen felvétel", result = osystem });
         }
 
         [HttpGet("allOsystem")]
@@ -45,7 +45,7 @@ namespace ComputerShopApi.Controllers
                 return StatusCode(200, new { message = "Sikeres lekérdezés", result = osystems });
             }
 
-            return StatusCode(400, new { message = "Üres tábla", result = osystems });
+            return StatusCode(404, new { message = "Üres tábla", result = osystems });
         }
 
         [HttpGet("osystemById")]
@@ -58,7 +58,7 @@ namespace ComputerShopApi.Controllers
                 return StatusCode(200, new { message = "Sikeres lekérdezés", result = osystem });
             }
 
-            return StatusCode(400, new { message = "Nincs ilyen id-vel osystem", result = osystem });
+            return StatusCode(404, new { message = "Nincs ilyen id-vel osystem", result = osystem });
         }
 
         [HttpPut("updateOsystem")]
@@ -78,7 +78,23 @@ namespace ComputerShopApi.Controllers
                 return StatusCode(200, new { message = "Sikeres frissítés", result = osystem });
             }
 
-            return StatusCode(400, new { message = "Nincs ilyen id-vel osystem", result = osystem });
+            return StatusCode(404, new { message = "Nincs ilyen id-vel osystem", result = osystem });
         }
+
+        [HttpDelete("deleteOsystem")]
+        public object DeleteOsystem([FromQuery]Guid id)
+        {
+            var osystem = context.Osystems.FirstOrDefault(o => o.Id == id);
+            if (osystem != null)
+            {
+                context.Osystems.Remove(osystem);
+                context.SaveChanges();
+
+                return StatusCode(200, new { message = "Sikeres törlés" });
+            }
+
+            return StatusCode(404, new { message = "Nincs ilyen id-vel osystem" });
+        }
+
     }
 }

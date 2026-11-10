@@ -1,5 +1,84 @@
 [
   {
+    "ContainingType": "ComputerShopApi.Controllers.ComputerController",
+    "Method": "AllComputer",
+    "RelativePath": "computers/allComputer",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ComputerShopApi.Controllers.ComputerController",
+    "Method": "ComputerById",
+    "RelativePath": "computers/ComputerById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ComputerShopApi.Controllers.ComputerController",
+    "Method": "DeleteComputer",
+    "RelativePath": "computers/deleteComputer",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ComputerShopApi.Controllers.ComputerController",
+    "Method": "AddNewComputer",
+    "RelativePath": "computers/newComputer",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addNewComputerDto",
+        "Type": "ComputerShopApi.Models.DTOs.AddNewComputerDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ComputerShopApi.Controllers.ComputerController",
+    "Method": "UpdateComputer",
+    "RelativePath": "computers/updateOsystem",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "updateComputerDto",
+        "Type": "ComputerShopApi.Models.DTOs.UpdateComputerDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ComputerShopApi.Controllers.OsystemController",
     "Method": "AllOsystem",
     "RelativePath": "Osystems/allOsystem",
@@ -43,6 +122,22 @@
   },
   {
     "ContainingType": "ComputerShopApi.Controllers.OsystemController",
+    "Method": "OsystemByBrand",
+    "RelativePath": "Osystems/osystemByBrand",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "brand",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ComputerShopApi.Controllers.OsystemController",
     "Method": "OsystemById",
     "RelativePath": "Osystems/osystemById",
     "HttpMethod": "GET",
@@ -55,6 +150,36 @@
         "IsRequired": false
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ComputerShopApi.Controllers.OsystemController",
+    "Method": "OsystemComputerCount",
+    "RelativePath": "Osystems/osystemComputerCount",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ComputerShopApi.Controllers.OsystemController",
+    "Method": "OsystemWithComputers",
+    "RelativePath": "Osystems/osystemWithComputers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ComputerShopApi.Controllers.OsystemController",
+    "Method": "OsystemWithoutComputer",
+    "RelativePath": "Osystems/osystemWithoutComputer",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

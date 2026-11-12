@@ -2,10 +2,8 @@
 using ComputerShopApi.Models.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-<<<<<<< HEAD
 using System.Collections;
-=======
->>>>>>> 82abef035c43f950933ab1866239dbbb465af179
+
 
 namespace ComputerShopApi.Controllers
 {
@@ -109,6 +107,19 @@ namespace ComputerShopApi.Controllers
         public object ComputerWithOs()
         {
             var computers = context.Computers.Join(context.Osystems, c => c.OsId, o => o.Id, (c,o) => new {c.Id, c.Brand, c.Type, c.Display, c.Memory, o.Name,o.Version}).ToList();
+
+            if (computers.Count > 0)
+            {
+                return StatusCode(200, new { message = "Lekérdezve", result = computers });
+            }
+
+            return StatusCode(404, new { message = "Üres tábla", result = computers });
+        }
+
+        [HttpGet("computersByOsName")]  
+        public object ComputersByOsName([FromQuery] string osName)
+        {
+            var computers = context.Computers.Where(c => c.Os.Name == osName).Select(c => new {c.Id,c.Brand,c.Type, c.Os.Name, c.Os.Version}).ToList();
 
             if (computers.Count > 0)
             {

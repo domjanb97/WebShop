@@ -114,11 +114,7 @@ namespace ComputerShopApi.Controllers
 
             return StatusCode(404, new { message = "Üres tábla", result = osystems });
 
-<<<<<<< HEAD
-            //return StatusCode(200, osystems);
-=======
-            //return StatusCode(200, osystem);
->>>>>>> 82abef035c43f950933ab1866239dbbb465af179
+
         }
 
         [HttpGet("osystemComputerCount")]

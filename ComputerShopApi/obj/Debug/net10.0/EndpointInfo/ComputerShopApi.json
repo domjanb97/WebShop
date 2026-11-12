@@ -133,7 +133,6 @@
         }
       }
     },
-<<<<<<< HEAD
     "/computers/computerWithOs": {
       "get": {
         "tags": [
@@ -146,8 +145,27 @@
         }
       }
     },
-=======
->>>>>>> 82abef035c43f950933ab1866239dbbb465af179
+    "/computers/computersByOsName": {
+      "get": {
+        "tags": [
+          "Computer"
+        ],
+        "parameters": [
+          {
+            "name": "osName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/Osystems/newOsystem": {
       "post": {
         "tags": [

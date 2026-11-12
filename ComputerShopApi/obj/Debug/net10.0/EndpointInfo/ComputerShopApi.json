@@ -200,6 +200,51 @@
         }
       }
     },
+    "/computers/computersByBrands": {
+      "get": {
+        "tags": [
+          "Computer"
+        ],
+        "parameters": [
+          {
+            "name": "brands",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/computers/totalMemory": {
+      "get": {
+        "tags": [
+          "Computer"
+        ],
+        "parameters": [
+          {
+            "name": "brand",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/Osystems/newOsystem": {
       "post": {
         "tags": [

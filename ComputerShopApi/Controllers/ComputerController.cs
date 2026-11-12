@@ -3,6 +3,7 @@ using ComputerShopApi.Models.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections;
+using System.Text.RegularExpressions;
 
 
 namespace ComputerShopApi.Controllers
@@ -161,6 +162,44 @@ namespace ComputerShopApi.Controllers
             }
 
             return StatusCode(404, new { message = "Üres eredmény", result = groups });
+        }
+
+        [HttpGet("computersByBrands")]
+        public object computersByBrands([FromQuery] List<string> brands)
+        {
+            if (brands == null || brands.Count == 0)
+            {
+                return StatusCode(400, new { message = "Legalább egy márkát adj meg" });
+            }
+
+            var computers = context.Computers
+                .Where(c => c.Brand != null && brands.Contains(c.Brand))
+                .Select(c => new { c.Brand,c.Type,c.Os.Name,c.Os.Version})
+                .OrderBy(c => c.Brand)
+                .ToList();
+
+            if (computers.Count > 0)
+            {
+                return StatusCode(200, new { message = "Sikeres lekérdezés", result = computers });
+            }
+
+            return StatusCode(404, new { message = "Üres eredmény", result = computers });
+        }
+
+        [HttpGet("totalMemory")]
+        public object TotalMemory([FromQuery] string? brand)
+        {
+            var query = context.Computers.AsQueryable();
+
+            if (!string.IsNullOrEmpty(brand))
+            {
+                query = query.Where(c => c.Brand == brand);
+            }
+
+            var total = query.Sum(c => c.Memory);
+            var count = query.Count();
+
+            return StatusCode(200, new { message = "Sikeres lekérdezés", result = new {Brand = brand, Total = total, Count = count } });
         }
     }
 }

@@ -37,6 +37,22 @@
   },
   {
     "ContainingType": "ComputerShopApi.Controllers.ComputerController",
+    "Method": "computersByBrands",
+    "RelativePath": "computers/computersByBrands",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "brands",
+        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ComputerShopApi.Controllers.ComputerController",
     "Method": "computersByMinMemory",
     "RelativePath": "computers/computersByMinMemory",
     "HttpMethod": "GET",
@@ -105,6 +121,22 @@
         "Name": "addNewComputerDto",
         "Type": "ComputerShopApi.Models.DTOs.AddNewComputerDto",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ComputerShopApi.Controllers.ComputerController",
+    "Method": "TotalMemory",
+    "RelativePath": "computers/totalMemory",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "brand",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

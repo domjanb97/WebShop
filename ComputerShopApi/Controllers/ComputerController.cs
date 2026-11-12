@@ -145,5 +145,22 @@ namespace ComputerShopApi.Controllers
 
             return StatusCode(404, new { message = "Üres tábla", result = computers });
         }
+
+        [HttpGet("computerGroupsByBrand")]
+        public object computerGroupsByBrand()
+        {
+            var groups = context.Computers
+                .GroupBy(c => c.Brand)
+                .Select(g => new {Brand = g.Key, ComputerCount = g.Count(), TotalMemory = g.Sum(c => c.Memory), AvgDisplay = g.Average(c => c.Display)})
+                .OrderBy(c => c.ComputerCount)
+                .ToList();
+
+            if(groups.Count > 0)
+            {
+                return StatusCode(200, new { message = "Sikeres lekérdezés", result = groups });
+            }
+
+            return StatusCode(404, new { message = "Üres eredmény", result = groups });
+        }
     }
 }

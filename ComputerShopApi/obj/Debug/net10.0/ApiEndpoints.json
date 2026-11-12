@@ -27,6 +27,16 @@
   },
   {
     "ContainingType": "ComputerShopApi.Controllers.ComputerController",
+    "Method": "computerGroupsByBrand",
+    "RelativePath": "computers/computerGroupsByBrand",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ComputerShopApi.Controllers.ComputerController",
     "Method": "computersByMinMemory",
     "RelativePath": "computers/computersByMinMemory",
     "HttpMethod": "GET",

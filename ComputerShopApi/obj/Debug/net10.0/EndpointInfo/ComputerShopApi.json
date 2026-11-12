@@ -188,6 +188,18 @@
         }
       }
     },
+    "/computers/computerGroupsByBrand": {
+      "get": {
+        "tags": [
+          "Computer"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/Osystems/newOsystem": {
       "post": {
         "tags": [

@@ -166,6 +166,28 @@
         }
       }
     },
+    "/computers/computersByMinMemory": {
+      "get": {
+        "tags": [
+          "Computer"
+        ],
+        "parameters": [
+          {
+            "name": "minMemory",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/Osystems/newOsystem": {
       "post": {
         "tags": [

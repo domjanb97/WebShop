@@ -27,6 +27,22 @@
   },
   {
     "ContainingType": "ComputerShopApi.Controllers.ComputerController",
+    "Method": "computersByMinMemory",
+    "RelativePath": "computers/computersByMinMemory",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "minMemory",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ComputerShopApi.Controllers.ComputerController",
     "Method": "ComputersByOsName",
     "RelativePath": "computers/computersByOsName",
     "HttpMethod": "GET",

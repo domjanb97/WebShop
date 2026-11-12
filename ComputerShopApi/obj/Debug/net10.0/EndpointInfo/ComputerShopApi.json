@@ -133,6 +133,7 @@
         }
       }
     },
+<<<<<<< HEAD
     "/computers/computerWithOs": {
       "get": {
         "tags": [
@@ -145,6 +146,8 @@
         }
       }
     },
+=======
+>>>>>>> 82abef035c43f950933ab1866239dbbb465af179
     "/Osystems/newOsystem": {
       "post": {
         "tags": [

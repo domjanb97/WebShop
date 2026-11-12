@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "gvN4GD8CvzQ=",
+  "dgSpecHash": "w6awT4jR6oI=",
   "success": true,
   "projectFilePath": "E:\\Sulis_programozás\\Suli_programozas\\22_alkalom(WebApi)\\WebShop\\ComputerShopApi\\ComputerShopApi.csproj",
   "expectedPackageFiles": [
@@ -39,5 +39,18 @@
     "C:\\Users\\User\\.nuget\\packages\\system.composition.runtime\\7.0.0\\system.composition.runtime.7.0.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\system.composition.typedparts\\7.0.0\\system.composition.typedparts.7.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "message": "Package 'MySqlConnector' 2.4.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-473q-m89c-ghf8",
+      "projectPath": "E:\\Sulis_programozás\\Suli_programozas\\22_alkalom(WebApi)\\WebShop\\ComputerShopApi\\ComputerShopApi.csproj",
+      "warningLevel": 1,
+      "filePath": "E:\\Sulis_programozás\\Suli_programozas\\22_alkalom(WebApi)\\WebShop\\ComputerShopApi\\ComputerShopApi.csproj",
+      "libraryId": "MySqlConnector",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
 }

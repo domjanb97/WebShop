@@ -2,7 +2,10 @@
 using ComputerShopApi.Models.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+<<<<<<< HEAD
 using System.Collections;
+=======
+>>>>>>> 82abef035c43f950933ab1866239dbbb465af179
 
 namespace ComputerShopApi.Controllers
 {
@@ -100,6 +103,7 @@ namespace ComputerShopApi.Controllers
 
             return StatusCode(404, new { message = "Nincs ilyen id-vel computer" });
         }
+
 
         [HttpGet("computerWithOs")]
         public object ComputerWithOs()

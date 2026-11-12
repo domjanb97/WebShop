@@ -2,6 +2,7 @@
 using ComputerShopApi.Models.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ComputerShopApi.Controllers
 {
@@ -94,6 +95,65 @@ namespace ComputerShopApi.Controllers
             }
 
             return StatusCode(404, new { message = "Nincs ilyen id-vel osystem" });
+        }
+
+        //Több táblás lekérdezések
+        //Lekérdezi az összes op. rendszert a hozzájuk tartozó számítógékeppel
+
+        [HttpGet("osystemWithComputers")]
+        public object OsystemWithComputers()
+        {
+            //var osystem = context.Osystems.Include(o => o.Computers).ToList();
+
+            var osystems = context.Osystems.Select(o => new {o.Id,o.Name,o.Version, Computers = o.Computers.Select(c => new { c.Id,c.Brand,c.Type}) }).ToList();
+
+            if(osystems.Count > 0)
+            {
+                return StatusCode(200, new { message = "Lekérdezve", result = osystems });
+            }
+
+            return StatusCode(404, new { message = "Üres tábla", result = osystems });
+
+            //return StatusCode(200, osystems);
+        }
+
+        [HttpGet("osystemComputerCount")]
+        public object OsystemComputerCount()
+        {
+            var osystems = context.Osystems.Select(o => new {o.Name,o.Version,ComputerCount = o.Computers.Count()}).OrderByDescending(c => c.ComputerCount).ToList();
+
+            if (osystems.Count > 0)
+            {
+                return StatusCode(200, new { message = "Lekérdezve", result = osystems });
+            }
+
+            return StatusCode(404, new { message = "Üres tábla", result = osystems });
+        }
+
+        [HttpGet("osystemWithoutComputer")]
+        public object OsystemWithoutComputer()
+        {
+            var osystems = context.Osystems.Where(o => !o.Computers.Any()).Select(o => new {o.Id,o.Name,o.Version,o.RegisterTime}).ToList();
+
+            if (osystems.Count > 0)
+            {
+                return StatusCode(200, new { message = "Lekérdezve", result = osystems });
+            }
+
+            return StatusCode(404, new { message = "Üres eredmény", result = osystems });
+        }
+
+        [HttpGet("osystemByBrand")]
+        public object OsystemByBrand([FromQuery]string brand)
+        {
+            var osystems = context.Osystems.Where(o => o.Computers.Any(c => c.Brand == brand)).Select(o => new {o.Id,o.Name,o.Version,o.RegisterTime,BrandCount = o.Computers.Count(c => c.Brand == brand)}).ToList();
+
+            if (osystems.Count > 0)
+            {
+                return StatusCode(200, new { message = "Lekérdezve", result = osystems });
+            }
+
+            return StatusCode(404, new { message = "Üres eredmény", result = osystems });
         }
 
     }
